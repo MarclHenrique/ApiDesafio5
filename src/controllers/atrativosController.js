@@ -1,0 +1,1 @@
+const atrativosService = require('../services/atrativosService')
