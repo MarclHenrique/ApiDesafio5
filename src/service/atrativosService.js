@@ -19,7 +19,7 @@ class AtrativosService {
             const destino = atrativo.CIDADE.DESTINO[0];
             return {
                 id: atrativo.id_atrativos,
-                nome: atrativo.nome,  // Adapte isso conforme necessário
+                nome: atrativo.nome,  
                 descricao: atrativo.descricao.replace(/\n/g, ""),
                 img_atrativo: atrativo.img_atrativo.replace(/\n/g, ""),
                 latitude: destino ? destino.latitude : null,

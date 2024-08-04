@@ -19,7 +19,7 @@ class AtrativosController {
       const atrativo = await AtrativosService.listarAtrativoPorId(id);
 
       if (atrativo) {
-        console.log("Atrativo retornado por ID:", atrativo); // Log para depuração
+        console.log("Atrativo retornado por ID:", atrativo); //depuração
         res.status(200).json(atrativo);
       } else {
         res

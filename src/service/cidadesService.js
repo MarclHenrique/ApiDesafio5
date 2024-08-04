@@ -12,7 +12,7 @@ class CidadesService {
         img_cidade: cidade.img_cidade.replace(/\n/g, ''),
         descricao: cidade.descricao.replace(/\n/g, ''),
       }));
-      console.log("Cidades encontradas:", cidades); // Log para depuração
+      console.log("Cidades encontradas:", cidades); // depuração
       return cidades;
     } catch (error) {
       console.error("Erro ao buscar cidades:", error);

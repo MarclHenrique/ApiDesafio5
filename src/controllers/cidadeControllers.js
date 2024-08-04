@@ -4,7 +4,7 @@ class CidadesController {
     static async listarCidades(req, res) {
       try {
         const cidades = await CidadesService.listarCidades();
-        console.log("Dados retornados:", cidades); // Log para depuração
+        console.log("Dados retornados:", cidades); // depuração
         res.status(201).json(cidades);
       } catch (erro) {
         res

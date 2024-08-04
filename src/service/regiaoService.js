@@ -18,7 +18,7 @@ class RegiaoService {
         }
       });
 
-      // Obter as cidades da região encontrada
+      // cidades da região encontrada
       const cidades = regioes.flatMap(regiao => regiao.DESTINO.map(destino => destino.CIDADE));
       
       // Remover quebras de linha das URLs das imagens
@@ -28,7 +28,7 @@ class RegiaoService {
         descricao: cidade.descricao.replace(/\n/g, ''),
       }));
 
-      console.log("Cidades encontradas por região:", cidadesFormatadas); // Log para depuração
+      console.log("Cidades encontradas por região:", cidadesFormatadas); // depuração
       return cidadesFormatadas;
     } catch (error) {
       console.error("Erro ao buscar cidades por região:", error);

@@ -6,7 +6,7 @@ class RegiaoController {
     const { id } = req.params;
     try {
       const cidades = await RegiaoService.buscarCidadesPorRegiao(id);
-      console.log("Cidades por região:", cidades); // Log para depuração
+      console.log("Cidades por região:", cidades); // depuração
       res.status(201).json(cidades);
     } catch (erro) {
       res
