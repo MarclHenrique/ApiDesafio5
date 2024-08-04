@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CIDADE {
+  id_cidade  Int      @id
+  nome_cidade String   @db.VarChar(15)
+  descricao  String   @db.VarChar(255)
+  img_cidade String   @db.VarChar(255)
+  DESTINO    DESTINO[]
+  ATRATIVOS  ATRATIVOS[]
+}
+
+model ATRATIVOS {
+  id_atrativos     Int    @id
+  nome             String? @db.VarChar(30)
+  tipos_atrativos  String  @db.VarChar(30)
+  img_atrativo     String  @db.VarChar(255)
+  descricao        String  @db.VarChar(255)
+  CIDADE_id_cidade Int
+  CIDADE           CIDADE @relation(fields: [CIDADE_id_cidade], references: [id_cidade])
+}
+
+model REGIAO {
+  id_regiao   Int    @id
+  nome_regiao String @db.VarChar(10)
+  DESTINO     DESTINO[]
+}
+
+model DESTINO {
+  id_destino     Int       @id
+  latitude       Decimal?  @db.Decimal(20, 16) 
+  longitude      Decimal?  @db.Decimal(20, 15) 
+  CIDADE_id_cidade Int
+  REGIAO_id_regiao Int
+  CIDADE         CIDADE   @relation(fields: [CIDADE_id_cidade], references: [id_cidade])
+  REGIAO         REGIAO   @relation(fields: [REGIAO_id_regiao], references: [id_regiao])
+}
+
